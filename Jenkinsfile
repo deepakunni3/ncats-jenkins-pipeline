@@ -1,6 +1,9 @@
 pipeline {
 	agent any
 
+	parameters {
+		string(name: 'PYTHON_INTERPRETER_PATH', defaultValue: '/usr/local/bin')
+	}
 	environment {
 		KGX_GIT='https://github.com/NCATS-tangerine/kgx.git'
 		PYTHONPATH='$WORKSPACE/kgx'
@@ -14,7 +17,8 @@ pipeline {
 		stage('KGX checkout') {
 			steps {
 				sh "cd $WORKSPACE"
-				sh "python3.7 -m venv env && env/bin/activate"
+				sh "which python3.7"
+				sh "export PYTHONPATH"
 				sh "pip3.7 install git+https://github.com/NCATS-Tangerine/kgx"
 				script {
 					if (!fileExists('$WORKSPACE/data')) {
