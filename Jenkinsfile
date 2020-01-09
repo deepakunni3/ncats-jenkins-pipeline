@@ -32,7 +32,7 @@ pipeline {
 				sh "wget https://raw.githubusercontent.com/obophenotype/human-phenotype-ontology/master/hp.owl -O data/hp.owl"
 				sh "wget https://raw.githubusercontent.com/The-Sequence-Ontology/SO-Ontologies/master/so.owl -O data/so.owl"
 				// Download datasets
-				sh "wget https://archive.monarchinitiative.org/latest/ttl/hpoa.ttl -O data/hpoa.ttl"
+				sh "wget https://data.monarchinitiative.org/ttl/hpoa.ttl -O data/hpoa.ttl"
 				sh "wget https://data.monarchinitiative.org/ttl/hgnc.ttl -O data/hgnc.ttl"
 			}
 		}
