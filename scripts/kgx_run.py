@@ -1,5 +1,5 @@
 from kgx import ObanRdfTransformer, JsonTransformer, HgncRdfTransformer, PandasTransformer, RdfOwlTransformer
-from kgx import clique_merge, make_valid_types
+from kgx.operations.clique_merge import CliqueMerge
 
 # parse hp.owl
 t = RdfOwlTransformer()
@@ -35,8 +35,8 @@ t.parse('results/hgnc.json')
 t.parse('results/hpoa.json')
 
 # clique merge
-t.graph = clique_merge(t.graph)
-make_valid_types(t.graph)
+cm = CliqueMerge()
+t.graph = cm(t.graph)
 
 # save as CSV
 csv_transformer = PandasTransformer(t)
