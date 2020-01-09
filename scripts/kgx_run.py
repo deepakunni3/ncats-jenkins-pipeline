@@ -1,4 +1,4 @@
-from kgx import ObanRdfTransformer, JsonTransformer, HgncRdfTransformer, PandasTransformer, RdfOwlTransformer
+from kgx import ObanRdfTransformer, JsonTransformer, PandasTransformer, RdfOwlTransformer
 from kgx.operations.clique_merge import CliqueMerge
 
 # parse hp.owl
@@ -14,7 +14,7 @@ t = JsonTransformer(t)
 t.save('results/mondo.json')
 
 # parse hgnc.ttl
-t = HgncRdfTransformer()
+t = ObanRdfTransformer()
 t.parse('data/hgnc_test.ttl')
 t = JsonTransformer(t)
 t.save('results/hgnc.json')
