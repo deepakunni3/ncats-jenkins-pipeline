@@ -1,6 +1,9 @@
 pipeline {
 	agent any
 
+	parameters {
+		string(name: 'PYTHON_INTERPRETER_PATH', defaultValue: '/usr/local/bin')
+	}
 	environment {
 		KGX_GIT='https://github.com/NCATS-tangerine/kgx.git'
 		PYTHONPATH='$WORKSPACE/kgx'

@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:latest
+FROM jenkins/jenkins:lts
 MAINTAINER  Deepak Unni "deepak.unni3@gmail.com"
 
 USER root
